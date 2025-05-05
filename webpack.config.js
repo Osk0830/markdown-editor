@@ -17,10 +17,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    publicPath: '/',
+    publicPath: '/dist/',
   },
   devServer: {
-    static: 'dist',
+    static: {
+      directory: __dirname, // ルート直下を配信
+      publicPath: '/',      // http://localhost:8080/ で index.html が見える
+    },
     hot: true,
     open: true,
   }
