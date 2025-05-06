@@ -21,8 +21,8 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: __dirname, // ルート直下を配信
-      publicPath: '/',      // http://localhost:8080/ で index.html が見える
+      directory: __dirname,
+      publicPath: '/',
     },
     hot: true,
     open: true,
