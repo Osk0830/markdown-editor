@@ -60,12 +60,14 @@ export const Editor: React.FC<Props> = (props) => {
   const [html, setHtml] = useState('')
 
   useEffect(() => {
+    console.log('useEffect: Markdown Worker is ready')
     convertMarkdownWorker.onmessage = (event) => {
       setHtml(event.data.html)
     }
   }, [])
 
   useEffect(() => {
+    console.log('useEffect: Convert Markdown to HTML')
     convertMarkdownWorker.postMessage(text)
   }, [text])
 

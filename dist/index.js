@@ -83,7 +83,7 @@
   right: 0;
   top: 0;
   width: 50vw;
-`,ua=t=>{const{text:n,setText:r}=t,[a,o]=na(!1),[i,l]=na("");return ra((()=>{ta.onmessage=e=>{l(e.data.html)}}),[]),ra((()=>{ta.postMessage(n)}),[n]),e.createElement(e.Fragment,null,e.createElement(oa,null,e.createElement(ea,{title:"Markdown Editor"},e.createElement(Ur,{onClick:()=>o(!0)},"保存する"),e.createElement(wr,{to:"/history"},"履歴を見る"))),e.createElement(aa,null,e.createElement(ia,{onChange:e=>r(e.target.value),value:n}),e.createElement(la,null,e.createElement("div",{dangerouslySetInnerHTML:{__html:i}}))),a&&e.createElement(Gr,{onSave:e=>{((e,t)=>{Mr(void 0,void 0,void 0,(function*(){const n=(new Date).toISOString();yield $r.put({datetime:n,title:e,text:t})}))})(e,n),o(!1)},onCancel:()=>o(!1)}))},{useState:sa,useEffect:ca}=t,fa=qt.div`
+`,ua=t=>{const{text:n,setText:r}=t,[a,o]=na(!1),[i,l]=na("");return ra((()=>{console.log("useEffect: Markdown Worker is ready"),ta.onmessage=e=>{l(e.data.html)}}),[]),ra((()=>{console.log("useEffect: Convert Markdown to HTML"),ta.postMessage(n)}),[n]),e.createElement(e.Fragment,null,e.createElement(oa,null,e.createElement(ea,{title:"Markdown Editor"},e.createElement(Ur,{onClick:()=>o(!0)},"保存する"),e.createElement(wr,{to:"/history"},"履歴を見る"))),e.createElement(aa,null,e.createElement(ia,{onChange:e=>r(e.target.value),value:n}),e.createElement(la,null,e.createElement("div",{dangerouslySetInnerHTML:{__html:i}}))),a&&e.createElement(Gr,{onSave:e=>{((e,t)=>{Mr(void 0,void 0,void 0,(function*(){const n=(new Date).toISOString();yield $r.put({datetime:n,title:e,text:t})}))})(e,n),o(!1)},onCancel:()=>o(!1)}))},{useState:sa,useEffect:ca}=t,fa=qt.div`
   position: fixed;
   right: 0;
   top: 0;
