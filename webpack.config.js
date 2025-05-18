@@ -3,13 +3,11 @@ const path = require('path')
 module.exports = {
   entry: './src/index.tsx',
   module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
+    rules: [{
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      exclude: /node_modules/,
+    }, ],
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
@@ -17,7 +15,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    publicPath: '/dist/',
+    // publicPath: '/dist/',
+    publicPath: process.env.NODE_ENV === 'production' ?
+      '/markdown-editor/dist/' : '/dist/',
   },
   devServer: {
     static: {

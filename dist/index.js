@@ -53,7 +53,7 @@
   & > * {
     margin-left: 0.5rem;
   }
-`,ea=t=>e.createElement(Xr,null,e.createElement(Jr,null,t.title),e.createElement(Zr,null,t.children)),ta=new Worker("/markdown-editor/worker/convert_markdown_worker.js"),{useState:na,useEffect:ra}=t,aa=qt.div`
+`,ea=t=>e.createElement(Xr,null,e.createElement(Jr,null,t.title),e.createElement(Zr,null,t.children)),ta=new Worker("/markdown-editor/dist/convert_markdown_worker.js"),{useState:na,useEffect:ra}=t,aa=qt.div`
   bottom: 0;
   left: 0;
   position: fixed;

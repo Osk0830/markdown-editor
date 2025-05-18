@@ -14,11 +14,12 @@ import { Header } from '../components/header'
 
 // webpack 5の標準Worker構文に変更
 // const convertMarkdownWorker = new Worker(new URL('../worker/convert_markdown_worker.ts', import.meta.url))
-const workerPath = process.env.NODE_ENV === 'production'
-  ? '/markdown-editor/worker/convert_markdown_worker.js'
-  : new URL('../worker/convert_markdown_worker.ts', import.meta.url);
-
-const convertMarkdownWorker = new Worker(workerPath);
+// editor.tsx（Web Workerのパス修正のみ）
+const convertMarkdownWorker = new Worker(
+  process.env.NODE_ENV === 'production'
+    ? '/markdown-editor/dist/convert_markdown_worker.js'
+    : new URL('../worker/convert_markdown_worker.ts', import.meta.url)
+);
 
 const { useState, useEffect } = React
 
