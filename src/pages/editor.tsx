@@ -13,7 +13,13 @@ import { Link } from 'react-router-dom'
 import { Header } from '../components/header'
 
 // webpack 5の標準Worker構文に変更
-const convertMarkdownWorker = new Worker(new URL('../worker/convert_markdown_worker.ts', import.meta.url))
+// const convertMarkdownWorker = new Worker(new URL('../worker/convert_markdown_worker.ts', import.meta.url))
+const workerPath = process.env.NODE_ENV === 'production'
+  ? '/markdown-editor/worker/convert_markdown_worker.js'
+  : new URL('../worker/convert_markdown_worker.ts', import.meta.url);
+
+const convertMarkdownWorker = new Worker(workerPath);
+
 const { useState, useEffect } = React
 
 const Wrapper = styled.div`
@@ -93,14 +99,14 @@ export const Editor: React.FC<Props> = (props) => {
         </Preview>
       </Wrapper>
       {showModal && (
-          <SaveModal
-            onSave={(title: string): void => {
-              putMemo(title, text)
-              setShowModal(false)
-            }}
-            onCancel={() => setShowModal(false)}
-          />
-        )}
+        <SaveModal
+          onSave={(title: string): void => {
+            putMemo(title, text)
+            setShowModal(false)
+          }}
+          onCancel={() => setShowModal(false)}
+        />
+      )}
     </>
   )
 }
